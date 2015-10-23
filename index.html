@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Cotizador</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Cotizador v1.0 <i class="fa fa-mobile-phone"></i></a>
+            </div>
+            <!-- /.navbar-header -->
+
+            <!-- /.navbar-top-links -->
+
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li>
+                            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-table fa-fw"></i> Tables</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-edit fa-fw"></i> Forms</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+
+        <!-- Page Content -->
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h4 class="page-header"></h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="panel panel-info">
+                                    <div class="panel-heading">
+                                        Cotizador
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="table-responsive">
+                                            <table class="table table-striped table-bordered table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Roll</th>
+                                                        <th>Cantidad</th>
+                                                        <th>Horas</th>
+                                                        <th>Total</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td><input type="hidden"  id="PM" value="17188">PM</td>
+                                                        <td><input type="number" min="0"  id="PMCA" value="0" onchange="cal()" style="width:100%;"></td>
+                                                        <td><input type="number" min="0"  id="PMHO" value="0" onchange="cal()" style="width:100%;"></td>
+                                                        <td><input type="number" readonly id="PMTOTAL" value="0"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="hidden"  id="AI" value="17188">Arquitecto de infraestructura</td>
+                                                        <td><input type="number" min="0"  id="AICA" value="0" onchange="cal()" style="width:100%;"></td>
+                                                        <td><input type="number" min="0"  id="AIHO" value="0" onchange="cal()" style="width:100%;"></td>
+                                                        <td><input type="number" readonly id="AITOTAL" value="0"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="hidden"  id="IS" value="14844">ingeniero de sistemas</td>
+                                                        <td><input type="number" min="0"  id="ISCA" value="0" onchange="cal()" style="width:100%;"></td>
+                                                        <td><input type="number" min="0"  id="ISHO" value="0" onchange="cal()" style="width:100%;"></td>
+                                                        <td><input type="number" readonly id="ISTOTAL" value="0"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="hidden"  id="JP" value="14063">Jefe Proyectos</td>
+                                                        <td><input type="number" min="0"  id="JPCA" value="0" onchange="cal()" style="width:100%;"></td>
+                                                        <td><input type="number" min="0"  id="JPHO" value="0" onchange="cal()" style="width:100%;"></td>
+                                                        <td><input type="number" readonly id="JPTOTAL" value="0"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="hidden"  id="AA" value="14063">Arquitecto de aplicaciones</td>
+                                                        <td><input type="number" min="0"  id="AACA" value="0" onchange="cal()" style="width:100%;"></td>
+                                                        <td><input type="number" min="0"  id="AAHO" value="0" onchange="cal()" style="width:100%;"></td>
+                                                        <td><input type="number" readonly id="AATOTAL" value="0"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="hidden"  id="ABI" value="11719">Analista BI</td>
+                                                        <td><input type="number" min="0"  id="ABICA" value="0" onchange="cal()" style="width:100%;"></td>
+                                                        <td><input type="number" min="0"  id="ABIHO" value="0" onchange="cal()" style="width:100%;"></td>
+                                                        <td><input type="number" readonly id="ABITOTAL" value="0"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="hidden"  id="AQA" value="9375">Analista QA</td>
+                                                        <td><input type="number" min="0"  id="AQACA" value="0" onchange="cal()" style="width:100%;"></td>
+                                                        <td><input type="number" min="0"  id="AQAHO" value="0" onchange="cal()" style="width:100%;"></td>
+                                                        <td><input type="number" readonly id="AQATOTAL" value="0"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="hidden"  id="DNM" value="9375">Dev Nativo Movil</td>
+                                                        <td><input type="number" min="0"  id="DNMCA" value="0" onchange="cal()" style="width:100%;"></td>
+                                                        <td><input type="number" min="0"  id="DNMHO" value="0" onchange="cal()" style="width:100%;"></td>
+                                                        <td><input type="number" readonly id="DNMTOTAL" value="0"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="hidden"  id="DJ" value="7813">Desarrollador java</td>
+                                                        <td><input type="number" min="0"  id="DJCA" value="0" onchange="cal()" style="width:100%;"></td>
+                                                        <td><input type="number" min="0"  id="DJHO" value="0" onchange="cal()" style="width:100%;"></td>
+                                                        <td><input type="number" readonly id="DJTOTAL" value="0"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="hidden"  id="DC" value="7813">Desarrollador C#</td>
+                                                        <td><input type="number" min="0"  id="DCCA" value="0" onchange="cal()" style="width:100%;"></td>
+                                                        <td><input type="number" min="0"  id="DCHO" value="0" onchange="cal()" style="width:100%;"></td>
+                                                        <td><input type="number" readonly id="DCTOTAL" value="0"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="hidden"  id="ProM" value="7813">Product Manager</td>
+                                                        <td><input type="number" min="0"  id="ProMCA" value="0" onchange="cal()" style="width:100%;"></td>
+                                                        <td><input type="number" min="0"  id="ProMHO" value="0" onchange="cal()" style="width:100%;"></td>
+                                                        <td><input type="number" readonly id="ProMTOTAL" value="0"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="hidden"  id="AS" value="7813">Analista Sistemas</td>
+                                                        <td><input type="number" min="0"  id="ASCA" value="0" onchange="cal()" style="width:100%;"></td>
+                                                        <td><input type="number" min="0"  id="ASHO" value="0" onchange="cal()" style="width:100%;"></td>
+                                                        <td><input type="number" readonly id="ASTOTAL" value="0"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="hidden"  id="IngS" value="7031">Ingeniero Soporte</td>
+                                                        <td><input type="number" min="0"  id="IngSCA" value="0" onchange="cal()" style="width:100%;"></td>
+                                                        <td><input type="number" min="0"  id="IngSHO" value="0" onchange="cal()" style="width:100%;"></td>
+                                                        <td><input type="number" readonly id="IngSTOTAL" value="0"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="hidden"  id="IngPre" value="6251">Ingeniero Preventa</td>
+                                                        <td><input type="number" min="0"  id="IngPreCA" value="0" onchange="cal()" style="width:100%;"></td>
+                                                        <td><input type="number" min="0"  id="IngPreHO" value="0" onchange="cal()" style="width:100%;"></td>
+                                                        <td><input type="number" readonly id="IngPreTOTAL" value="0"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="hidden"  id="DG" value="3281">Diseñador grafico</td>
+                                                        <td><input type="number" min="0"  id="DGCA" value="0" onchange="cal()" style="width:100%;"></td>
+                                                        <td><input type="number" min="0"  id="DGHO" value="0" onchange="cal()" style="width:100%;"></td>
+                                                        <td><input type="number" readonly id="DGTOTAL" value="0"></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <script type="text/javascript">
+                                    var PM      = document.getElementById("PM").value;
+                                    var AI      = document.getElementById("AI").value;
+                                    var IS      = document.getElementById("IS").value;
+                                    var JP      = document.getElementById("JP").value;
+                                    var AA      = document.getElementById("AA").value;
+                                    var ABI     = document.getElementById("ABI").value;
+                                    var AQA     = document.getElementById("AQA").value;
+                                    var DNM     = document.getElementById("DNM").value;
+                                    var DJ      = document.getElementById("DJ").value;
+                                    var DC      = document.getElementById("DC").value;
+                                    var ProM    = document.getElementById("ProM").value;
+                                    var AS      = document.getElementById("AS").value;
+                                    var IngS    = document.getElementById("IngS").value;
+                                    var IngPre  = document.getElementById("IngPre").value;
+                                    var DG      = document.getElementById("DG").value;
+                                    function cal(){
+                                        var overTotal = 0;
+
+                                        var pmca    = document.getElementById("PMCA").value;
+                                        var pmho    = document.getElementById("PMHO").value;
+                                        var pmtotal = PM * pmca * pmho;
+                                        document.getElementById("PMTOTAL").value = pmtotal;
+                                        
+                                        var aica    = document.getElementById("AICA").value;
+                                        var aiho    = document.getElementById("AIHO").value;
+                                        var aitotal = AI * aica * aiho;
+                                        document.getElementById("AITOTAL").value = aitotal;
+                                        
+                                        var isca    = document.getElementById("ISCA").value;
+                                        var isho    = document.getElementById("ISHO").value;
+                                        var istotal = IS * isca * isho;
+                                        document.getElementById("ISTOTAL").value = istotal;
+                                        
+                                        var jpca    = document.getElementById("JPCA").value;
+                                        var jpho    = document.getElementById("JPHO").value;
+                                        var jptotal = JP * jpca * jpho;
+                                        document.getElementById("JPTOTAL").value = jptotal;
+                                        
+                                        var aaca    = document.getElementById("AACA").value;
+                                        var aaho    = document.getElementById("AAHO").value;
+                                        var aatotal = AA * aaca * aaho;
+                                        document.getElementById("AATOTAL").value = aatotal;
+                                        
+                                        var abica    = document.getElementById("ABICA").value;
+                                        var abiho    = document.getElementById("ABIHO").value;
+                                        var abitotal = ABI * abica * abiho;
+                                        document.getElementById("ABITOTAL").value = abitotal;
+                                        
+                                        var aqaca    = document.getElementById("AQACA").value;
+                                        var aqaho    = document.getElementById("AQAHO").value;
+                                        var aqatotal = AQA * aqaca * aqaho;
+                                        document.getElementById("AQATOTAL").value = aqatotal;
+                                        
+                                        var dnmca    = document.getElementById("DNMCA").value;
+                                        var dnmho    = document.getElementById("DNMHO").value;
+                                        var dnmtotal = DNM * dnmca * dnmho;
+                                        document.getElementById("DNMTOTAL").value = dnmtotal;
+                                        
+                                        var djca    = document.getElementById("DJCA").value;
+                                        var djho    = document.getElementById("DJHO").value;
+                                        var djtotal = DJ * djca * djho;
+                                        document.getElementById("DJTOTAL").value = djtotal;
+                                        
+                                        var dcca    = document.getElementById("DCCA").value;
+                                        var dcho    = document.getElementById("DCHO").value;
+                                        var dctotal = DC * dcca * dcho;
+                                        document.getElementById("DCTOTAL").value = dctotal;
+                                        
+                                        var promca    = document.getElementById("ProMCA").value;
+                                        var promho    = document.getElementById("ProMHO").value;
+                                        var promtotal = ProM * promca * promho;
+                                        document.getElementById("ProMTOTAL").value = promtotal;
+                                        
+                                        var asca    = document.getElementById("ASCA").value;
+                                        var asho    = document.getElementById("ASHO").value;
+                                        var astotal = AS * asca * asho;
+                                        document.getElementById("ASTOTAL").value = astotal;
+                                        
+                                        var ingsca    = document.getElementById("IngSCA").value;
+                                        var ingsho    = document.getElementById("IngSHO").value;
+                                        var ingstotal = IngS * ingsca * ingsho;
+                                        document.getElementById("IngSTOTAL").value = ingstotal;
+                                        
+                                        var ingpreca    = document.getElementById("IngPre").value;
+                                        var ingpreho    = document.getElementById("IngPre").value;
+                                        var ingpretotal = IngPre * ingpreca * ingpreho;
+                                        document.getElementById("IngPre").value = ingpretotal;
+                                        
+                                        var dgca    = document.getElementById("DGCA").value;
+                                        var dgho    = document.getElementById("DGHO").value;
+                                        var dgtotal = DG * dgca * dgho;
+                                        document.getElementById("DGTOTAL").value = dgtotal;
+
+                                        var PMTOTAL      = parseInt(document.getElementById("PMTOTAL").value);
+                                        var AITOTAL      = parseInt(document.getElementById("AITOTAL").value);
+                                        var ISTOTAL      = parseInt(document.getElementById("ISTOTAL").value);
+                                        var JPTOTAL      = parseInt(document.getElementById("JPTOTAL").value);
+                                        var AATOTAL      = parseInt(document.getElementById("AATOTAL").value);
+                                        var ABITOTAL     = parseInt(document.getElementById("ABITOTAL").value);
+                                        var AQATOTAL     = parseInt(document.getElementById("AQATOTAL").value);
+                                        var DNMTOTAL     = parseInt(document.getElementById("DNMTOTAL").value);
+                                        var DJTOTAL      = parseInt(document.getElementById("DJTOTAL").value);
+                                        var DCTOTAL      = parseInt(document.getElementById("DCTOTAL").value);
+                                        var ProMTOTAL    = parseInt(document.getElementById("ProMTOTAL").value);
+                                        var ASTOTAL      = parseInt(document.getElementById("ASTOTAL").value);
+                                        var IngSTOTAL    = parseInt(document.getElementById("IngSTOTAL").value);
+                                        var IngPreTOTAL  = parseInt(document.getElementById("IngPreTOTAL").value);
+                                        var DGTOTAL      = parseInt(document.getElementById("DGTOTAL").value);
+                                        overTotal = PMTOTAL + AITOTAL + ISTOTAL + JPTOTAL + AATOTAL + ABITOTAL + AQATOTAL+ DNMTOTAL + DJTOTAL + DCTOTAL + ProMTOTAL + ASTOTAL + IngSTOTAL + IngPreTOTAL + DGTOTAL;
+                                        var empresa = overTotal * 0.25;
+                                        var departa = overTotal * 0.06;
+                                        var fulTotal= parseInt(empresa)+parseInt(departa)+overTotal;
+                                        console.log(empresa);
+                                        document.getElementById('info').innerHTML = '<h5>Costo desarrollo : $' + overTotal + '</h5><h5>Costo Departamento: $' + parseInt(departa) + '</h5><h5>Costo Empresa :$' + parseInt(empresa) + '</h5><h4>Total: $'+ fulTotal +'</h4>';
+                                    }
+                                    </script>
+                                    <div class="panel-footer">
+                                        <div class="alert alert-info" id="info">
+                                            
+                                        </div>
+                                        <img src="images/advanceit.png" alt="" style="width:100%;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.col-lg-12 -->
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="bower_components/metisMenu/dist/metisMenu.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="dist/js/sb-admin-2.js"></script>
+
+</body>
+
+</html>
